@@ -34,7 +34,7 @@ def callback():
 #之後所有機器人判斷邏輯的編輯區
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TextSendMessage(text="qwe") #event.message.text
+    message = TextSendMessage(text="event.message.text") #event.message.text
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
