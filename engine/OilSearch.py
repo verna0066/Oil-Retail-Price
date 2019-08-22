@@ -3,12 +3,12 @@ from bs4 import BeautifulSoup
 import requests
 # https://www2.moeaboe.gov.tw/oil102/oil2017/A01/A0108/tablesprices.asp
 
-def oilSearch():
+def oilSearch(userInput):
 	url = "https://www2.moeaboe.gov.tw/oil102/oil2017/A01/A0108/tablesprices.asp"
 	webContent = requests.get(url)
 	webContent.encoding = 'big5'
 	soup = BeautifulSoup(webContent.text, "html.parser") 
-	userInput = input('選擇:[1] 本期油價 [2]:近兩期油價 ')
+	#userInput = input('選擇:[1] 本期油價 [2]:近兩期油價 ')
 	
 	#不能用print，這樣是印出在遠端硬碟，設計一個 空字串變數，讓 回傳值進到空字串裡
 
