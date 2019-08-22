@@ -8,10 +8,10 @@ def oilSearch():
 	webContent = requests.get(url)
 	webContent.encoding = 'big5'
 	soup = BeautifulSoup(webContent.text, "html.parser") 
-
 	userInput = input('選擇:[1] 本期油價 [2]:近兩期油價 ')
-
+	
 	#不能用print，這樣是印出在遠端硬碟，設計一個 空字串變數，讓 回傳值進到空字串裡
+
 	reply = ''
 	if userInput =="1":
 		for retailPrice in soup.select('.rwd-table')[1].select('tr')[1:3]:
@@ -42,7 +42,6 @@ def oilSearch():
 				reply += ('-- -- -- -- -- --\n')
 				reply += ('供應商: {}\n九八無鉛汽油: {}\n九五無鉛汽油: {}\n九二無鉛汽油: {}\n  超級柴油  : {}\n單位: {}\n公告日期: {}\n\n'.format(Supplier,oil98,oil95,oil92,Diesel,Unit,Date))
 			reply += ('-- -- -- -- -- --\n')
-
 	return reply
 
 # 資料有擷取成功，但只抓到 rwd-table 的第一列
